@@ -136,9 +136,6 @@
     <ClCompile Include="WADLoader.cpp" />
     <ClCompile Include="WADReader.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Downloads\Doom (v1.8)\DOOM.WAD" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

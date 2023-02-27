@@ -6,7 +6,7 @@
 struct Directory
 {
 	uint32_t LumpOffset;
-	uint32_t LumpSizte;
+	uint32_t LumpSize;
 	char LumpName[9];
 };
 

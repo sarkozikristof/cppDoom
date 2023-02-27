@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="resources">
-      <UniqueIdentifier>{3750c1af-13c3-42d5-b22f-1a453b0e0052}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WADLoader.cpp">
@@ -38,10 +35,5 @@
     <ClInclude Include="WADReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Downloads\Doom (v1.8)\DOOM.WAD">
-      <Filter>resources</Filter>
-    </None>
   </ItemGroup>
 </Project>
