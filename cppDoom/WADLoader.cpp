@@ -126,8 +126,39 @@ bool WADLoader::ReadMapVertex(Map& map) {
 
 		map.AddVertex(vertex);
 
-		cout << vertex.XPosition, vertex.XPosition;
+		cout << vertex.XPosition << endl;
+		cout << vertex.YPosition << endl;
 		std::cout << std::endl;
+	}
+
+	return true;
+}
+
+bool WADLoader::ReadMapLinedef(Map& map) {
+	int iMapIndex = FindMapIndex(map);
+
+	if (iMapIndex == -1) {
+		return false;
+	}
+
+	iMapIndex += EMAPLUMPSINDEX::eLINEDEFS;
+
+	if (strcmp(m_WADDirectories[iMapIndex].LumpName, "LINEDEFS") != 0) {
+		return false;
+	}
+
+	int iLinedefSizeInBytes = sizeof(Linedef);
+	int iLinedefCount = m_WADDirectories[iMapIndex].LumpSize / iLinedefSizeInBytes;
+
+	Linedef linedef;
+	for (int i = 0; i < iLinedefCount; ++i) {
+		m_Reader.ReadLinedefData(m_WADData, m_WADDirectories[iMapIndex].LumpOffset + i * iLinedefSizeInBytes, linedef);
+
+		map.AddLinedef(linedef);
+
+		cout << linedef.StartVertex << endl;
+		cout << linedef.EndVertex << endl;
+		cout << endl;
 	}
 
 	return true;
