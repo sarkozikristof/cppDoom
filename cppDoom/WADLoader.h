@@ -14,6 +14,7 @@ class WADLoader
 public:
 	WADLoader(std::string sWADFilePath);
 	bool LoadWAD();
+	bool LoadMapData(Map& map);
 
 	~WADLoader();
 

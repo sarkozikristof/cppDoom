@@ -65,21 +65,32 @@ bool WADLoader::OpenAndLoad() {
 	return true;
 }
 
+bool WADLoader::LoadMapData(Map& map) {
+	if (!ReadMapVertex(map)) {
+		cout << "Error: Failed loading map vertex" << map.GetName() << endl;
+		return false;
+	}
+	if (!ReadMapLinedef(map)) {
+		cout << "Error: Failed loading map linedef" << map.GetName() << endl;
+		return false;
+	}
+
+	return true;
+}
 
 bool WADLoader::ReadDirectories() {
-	WADReader reader;
 	Header header;
 	Directory directory;
 
-	reader.ReadHeaderData(m_WADData, 0, header);
+	m_Reader.ReadHeaderData(m_WADData, 0, header);
 
 	cout << header.WADType << endl;
 	cout << header.DirectoryCount << endl;
 	cout << header.DirectoryOffset << endl;
 	cout << endl << endl;
 
-	for (int i = 0; i < header.DirectoryCount; ++i) {
-		reader.ReadDirectoryData(m_WADData, header.DirectoryOffset + (i * 16), directory);
+	for (unsigned int i = 0; i < header.DirectoryCount; ++i) {
+		m_Reader.ReadDirectoryData(m_WADData, header.DirectoryOffset + (i * 16), directory);
 
 		m_WADDirectories.push_back(directory);
 
